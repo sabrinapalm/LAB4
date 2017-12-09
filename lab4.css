@@ -1,0 +1,25 @@
+body {
+    margin: 0px;
+    background-color: #F1F1F1;
+}
+
+#banner {
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: Josefin Sans;
+    color: #222831;
+}
+
+#wrapper {
+    background-color: #F1F1F1;
+    text-align: left;
+    width: 800px;
+    height: auto;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+#list {
+    
+}
+
