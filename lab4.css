@@ -1,25 +1,118 @@
 body {
-    margin: 0px;
-    background-color: #F1F1F1;
+    font-family: Josefin Sans;
+    color: #444;
+    letter-spacing: 1px;
 }
 
-#banner {
+h1, h2 {
+    font-weight: normal;
     text-align: center;
-    letter-spacing: 2px;
-    font-family: Josefin Sans;
-    color: #222831;
 }
 
 #wrapper {
-    background-color: #F1F1F1;
-    text-align: left;
-    width: 800px;
-    height: auto;
+    width: 100%;
+    max-width: 650px;
     margin: 100px auto;
     padding: 20px;
+    overflow: hidden;
 }
 
-#list {
-    
+#banner {
+    padding: 10px 0;
 }
 
+#banner h1, #banner p {
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+    letter-spacing: 2px;
+    font-family: Josefin Sans;
+}
+
+#banner input {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    padding: 2px;
+    border: 1px solid #222831;
+    color: #222831;
+}
+
+#list, #add {
+    margin: 30px;
+}
+
+#list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#list li {
+    padding: 20px;
+    border-left: 2px solid #ddd;
+    margin: 20px 10px;
+}
+
+#list li:hover {
+    transition: 0.3s;
+    border-left: 3px solid #ddd;
+}
+
+.delete {
+    float: right;
+    background: #222831;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.delete:hover {
+    background: #333;
+}
+
+#add {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#add input {
+    margin: 20px 10px 0px 10px;
+    border: 1px solid #222831;
+    border-radius: ;
+    box-sizing: border-box;
+    width: 150px;
+    float: left;
+}
+
+#add button {
+    font-family: Josefin Sans;
+    border: none;
+    background: #222831;
+    padding: 5px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    margin: 12px 0px 0px 10px;
+    color: white;
+    float: left;
+}
+#apibtn {
+    float: left;
+    font-family: Josefin Sans;
+    border: none;
+    background: #222831;
+    padding: 10px 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 110px;
+    color: white;
+    letter-spacing: 1px;
+}
+#api {
+    width: 100px;
+    height: 30px;
+    margin: 8px 0px 40px 115px;
+    font-size: 1.3em;
+}
