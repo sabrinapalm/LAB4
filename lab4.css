@@ -86,6 +86,18 @@ h1, h2 {
     margin: 0px auto;
 }
 
+.delete {
+    background: #222831;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+
+.delete:hover{
+    background: #333;
+}
+
 #add input {
 
     margin: 100px auto;
@@ -98,12 +110,14 @@ h1, h2 {
     font-family: Josefin Sans;
     border: none;
     background: #222831;
-    padding: 5px 0px;
+    padding: 6px;
     border-radius: 5px;
     cursor: pointer;
     width: 100px;
     color: white;
     margin: 0 auto;
+    letter-spacing: 1px;
+    
 }
 
 #result {
@@ -129,6 +143,8 @@ h1, h2 {
     margin-bottom: 5px;
     margin-left: auto;
     margin-right: auto;
+    letter-spacing: 1px;
+    padding: 8px 4px;
 }
 
 #change {
