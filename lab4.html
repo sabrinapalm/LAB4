@@ -4,57 +4,50 @@
     <meta charset="utf-8">
     <link href="lab4.css" rel="stylesheet" />
     <title>Sabrina Palm | Lab 4</title>
-    <script src="lab4.js"></script>
+    
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   </head>
+  
+  
+  
   <body>
   	<div id="wrapper">
   	
-  	<button id="apibtn">API NYCKEL</button>
+  	<div id="banner">
+	   <h1 class="title">BOOK &amp; CO</h1>
+          <p>Enrich your life</p>
+	    	</div>
+  	
+  	<button id="apibtn">requestKey</button>
     <div id ="api">
     </div>
-    
-	    <header>
-	    
-	    	<div id="banner">
-	    		<h1 class="title">BOKKOMPANIET</h1>
-          <p>För bokmalar</p>
-          
-          <form id="search">
-            <input type="text" placeholder="Sök (titel, författare)" />
-          </form>
-	    	</div>
-	    	
-	    </header>
-	    
-	    <div id="list">
-	    	<h2 class="title">Din boklista</h2>
-	    	<ul>
-	    		<li>
-	    			<span class="name">Harry Potter och De Vises Sten</span>
-	    			<span class="delete">Ta bort</span>
-	    		</li>
-	    		<li>
-	    			<span class="name">Harry Potter och Hemligheternas Kammare</span>
-	    			<span class="delete">Ta bort</span>
-	    		</li>
-	    		<li>
-	    			<span class="name">Harry Potter och Fången från Azkaban</span>
-	    			<span class="delete">Ta bort</span>
-	    		</li>
-	    		<li>
-	    			<span class="name">Harry Potter och Den flammande bägaren</span>
-	    			<span class="delete">Ta bort</span>
-	    		</li>
-	    	</ul>
-	    </div>
-	    
-	    <form id="add">
-	    	<input type="text" placeholder="Titel.." />
-	    	<input type="text" placeholder="Författare.." />
-	    	<button>Lägg till</button>
-	    </form> 
 
+    <form id="add">
+            <input type="text" placeholder="(Title)"/> 
+	    	<input type="text" placeholder="(Author)"/>
+	    	<button id="addbtn">Lägg till</button>
+	    </form> 
+	    
+	    <div id ="result"></div>
+	    <div id="list">
+	    	<h2 class="title">Your Booklist</h2>
+	    	<ul id ="mylist"></ul>	
+       
+        </div>
+	    
+	    
+	    
+	    <button id="changebtn">Change book</button>
+	    <form id="change">
+            <input type="text" placeholder="(ID)" />
+            <input type="text" placeholder="(Title)" />
+            <input type="text" placeholder="(Author)" />
+          </form>
+	    
     </div> 
+    <script src="lab4.js"></script>
   </body>
+  
+  
+  
 </html>

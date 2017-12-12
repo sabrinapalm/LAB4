@@ -11,7 +11,7 @@ h1, h2 {
 
 #wrapper {
     width: 100%;
-    max-width: 650px;
+    max-width: 800px;
     margin: 100px auto;
     padding: 20px;
     overflow: hidden;
@@ -19,6 +19,7 @@ h1, h2 {
 
 #banner {
     padding: 10px 0;
+    margin-bottom: 50px;
 }
 
 #banner h1, #banner p {
@@ -49,41 +50,48 @@ h1, h2 {
 }
 
 #list li {
-    padding: 20px;
+    text-align: center;
+    padding: 10px;
+    border-left: 2px solid #ddd;
+    border-right: 2px solid #ddd;
     border-left: 2px solid #ddd;
     margin: 20px 10px;
 }
 
-#list li:hover {
-    transition: 0.3s;
-    border-left: 3px solid #ddd;
+#add {
+    text-align: center;
+    margin: 40px;
 }
 
-.delete {
-    float: right;
+
+#apibtn {
+    font-family: Josefin Sans;
+    border: none;
     background: #222831;
-    padding: 10px;
+    padding: 10px 0px;
     border-radius: 5px;
     cursor: pointer;
+    width: 170px;
     color: white;
+    letter-spacing: 1px;
+    margin: 10px auto;
+    display: block;
+    font-size: 1em;
 }
-
-.delete:hover {
-    background: #333;
-}
-
-#add {
-    width: 400px;
-    margin: 0 auto;
+#api {
+    text-align: center;
+    width: 165px;
+    height: 30px;
+    font-size: 1.1em;
+    margin: 0px auto;
 }
 
 #add input {
-    margin: 20px 10px 0px 10px;
-    border: 1px solid #222831;
-    border-radius: ;
-    box-sizing: border-box;
-    width: 150px;
-    float: left;
+
+    margin: 100px auto;
+    width: 180px;
+    margin: 0 auto;
+    padding: 2px;
 }
 
 #add button {
@@ -94,25 +102,42 @@ h1, h2 {
     border-radius: 5px;
     cursor: pointer;
     width: 100px;
-    margin: 12px 0px 0px 10px;
     color: white;
-    float: left;
+    margin: 0 auto;
 }
-#apibtn {
-    float: left;
+
+#result {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#search {
+    text-align: center;
+}
+
+#changebtn {
     font-family: Josefin Sans;
     border: none;
     background: #222831;
-    padding: 10px 0px;
+    padding: 5px 0px;
     border-radius: 5px;
     cursor: pointer;
-    width: 110px;
-    color: white;
-    letter-spacing: 1px;
-}
-#api {
     width: 100px;
-    height: 30px;
-    margin: 8px 0px 40px 115px;
-    font-size: 1.3em;
+    color: white;
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#change {
+    margin: 100px auto;
+    width: 180px;
+    margin: 0 auto;
+    padding: 2px;
+}
+
+#change input {
+    margin: 2px auto;
 }
