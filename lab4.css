@@ -77,6 +77,10 @@ h2 {
     display: block;
     font-size: 1em;
 }
+
+#apibtn:hover {
+    background: #333;
+}
 #api {
     text-align: center;
     width: 165px;
@@ -117,6 +121,7 @@ h2 {
     margin: 0 auto;
     padding: 2px;
     outline: none;
+    padding: 
 }
 
 #add button {
@@ -131,6 +136,10 @@ h2 {
     margin: 0 auto;
     letter-spacing: 1px;
     
+}
+
+#add button:hover {
+    background: #333;
 }
 
 #result {

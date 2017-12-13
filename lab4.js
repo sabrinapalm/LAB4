@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
    
-    /************************VARIABLES************************/
+/************************VARIABLES************************/
 
 //REQUEST API KEY 
-let key,
-    apibtn = document.getElementById("apibtn"),
-    apiKey = document.getElementById("api");
+let apibtn = document.getElementById("apibtn"),
+    apiKey = document.getElementById("api"),
+    key;
 
 //ADD BOOKS
 let addbtn = document.getElementById("addbtn"),
@@ -14,13 +14,10 @@ let addbtn = document.getElementById("addbtn"),
     author = document.getElementsByTagName("input")[1],
     result = document.getElementById("result"),
     failed = 0;
-
-//CHANGE BOOKS
-let change = document.getElementById("change"),
-    ID = document.getElementsByTagName("input")[2],
-    newtitle = document.getElementsByTagName("input")[3],
-    newauthor = document.getElementsByTagName("input")[4];
-
+    
+/*VIEW BOOKS
+    let viewBtn = document.getElementById("viewBtn"),
+        output = document.getElementById("output");*/
 
 
 /************************EVENT LISTENERS************************/
@@ -42,7 +39,11 @@ mylist.addEventListener('click', function(event){
 
 mylist.addEventListener('click', function(event){
     deleteBook(); //calling delBook function
-})
+});
+    
+viewBtn.addEventListener('click', function(event){
+    viewBook(); //calling viewBooks function
+});
 
 
 
@@ -58,12 +59,17 @@ function getKey() {
     req.open('GET', 'https://www.forverkliga.se/JavaScript/api/crud.php?requestKey', true);
 
     req.onreadystatechange = function(event) {
+        
+        console.log("readyState:" + req.readyState);
+	    console.log("status:" + req.status);
+	    console.log("responseText:" + req.responseText);
     
     if (this.readyState == 4 && this.status == 200) {
+        
         let ob = JSON.parse(req.responseText);
         key = ob.key;
-        api.innerHTML = `Recieved: ${key}`;
-    }  
+        api.innerHTML = `Recieved: ${key}`; 
+    } 
 }
 req.send();  
 }
@@ -80,17 +86,24 @@ function addBook() {
     
     addreq.onload = function() {
         
-    if (this.status == 200) {
+    if (this.status == 200 && this.readyState == 4) {
 
         let ob1 = JSON.parse(this.responseText)
 
         if(ob1.status == "error") {
-
-        failed = failed + 1;
-        result.innerHTML = `Error message: ${ob1.message} <br />
-                            Failed: ${failed}`;
+            
+            console.log(ob1)
+            
+            failed = failed + 1;
+            result.innerHTML = `Error message: ${ob1.message} <br />
+                                Failed: ${failed}`;
 
         } else {
+            
+            let ob2 = JSON.parse(this.responseText);
+            let ID = ob2.id;
+            
+            console.log(ob2);
             
             let child = document.getElementById("empty");
             
@@ -100,12 +113,14 @@ function addBook() {
             let li = document.createElement('li');
             let bookTitle = document.createElement('span');
             let authorTitle = document.createElement ('span');
+            let idTitle = document.createElement ('p');
             let del = document.createElement('button');
             
             //ADD CONTENT
             del.textContent = 'delete';
             bookTitle.textContent = title.value;
             authorTitle.textContent = author.value;
+            idTitle.textContent = `ID: ${ob2.id}`;
             
             //ADD CLASS TO SPAN
             bookTitle.classList.add('name');
@@ -122,6 +137,7 @@ function addBook() {
             //ADD TO DOM
             li.appendChild(bookTitle);
             li.appendChild(authorTitle);
+            li.appendChild(idTitle);
             li.appendChild(del);  
             
             mylist.appendChild(li);
@@ -130,6 +146,31 @@ function addBook() {
     } 
 } 
 addreq.send();
+}
+    
+    
+//VIEW BOOK FUNCTION UNDER PROGRESS!
+
+function viewBook() {
+    
+let viewreq = new XMLHttpRequest();
+    
+    viewreq.open('GET', `https://www.forverkliga.se/JavaScript/api/crud.php?op=select&key=${key}`, true);
+    
+    console.log(viewreq.readyState);
+    
+    if (this.readyState == 4 && this.status == 200) {
+        
+        let booklist = JSON.parse(this.responseText);
+        
+        Array.from(booklist)
+        
+        for (i = 0; i < booklist.length; i++) {
+            console.log(booklist)
+        }
+        
+    }
+viewreq.send();
 }
 
 
@@ -143,7 +184,6 @@ function changeBook() {
         input, 
         text;
 
- 
     span = event.target 
 
     // Check span
@@ -179,7 +219,7 @@ function changeBook() {
             // Update span with new text content
             span.innerHTML = input.value == "" ? "&nbsp;" : input.value;
 
-            // Show span
+            // Show span again
             span.style.display = "";
             
         });
