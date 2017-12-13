@@ -41,9 +41,9 @@ mylist.addEventListener('click', function(event){
     deleteBook(); //calling delBook function
 });
     
-viewBtn.addEventListener('click', function(event){
+/*viewBtn.addEventListener('click', function(event){
     viewBook(); //calling viewBooks function
-});
+});*/
 
 
 
