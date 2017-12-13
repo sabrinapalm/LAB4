@@ -1,6 +1,8 @@
 # LAB4
 LAB4 - API
 
+Siktar på betyget godkänt!
+
 <strong>För godkänt ska ni göra en webbsida som</strong><br />
 kan begära en API-nyckel<br />
 kan lägga till en bok<br />
