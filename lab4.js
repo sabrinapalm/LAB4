@@ -1,4 +1,6 @@
-/************************VARIABLES************************/
+document.addEventListener('DOMContentLoaded', function() {
+   
+    /************************VARIABLES************************/
 
 //REQUEST API KEY 
 let key,
@@ -14,8 +16,10 @@ let addbtn = document.getElementById("addbtn"),
     failed = 0;
 
 //CHANGE BOOKS
-let change = document.getElementById("change");
-
+let change = document.getElementById("change"),
+    ID = document.getElementsByTagName("input")[2],
+    newtitle = document.getElementsByTagName("input")[3],
+    newauthor = document.getElementsByTagName("input")[4];
 
 
 
@@ -31,9 +35,9 @@ addbtn.addEventListener('click', function(event){
 });
 
 
-/*change.addEventListener('click', function(event){  
+mylist.addEventListener('click', function(event){  
     changeBook(); //calling changeBook function
-});*/
+});
 
 
 mylist.addEventListener('click', function(event){
@@ -43,7 +47,7 @@ mylist.addEventListener('click', function(event){
 
 
 
-/************************FUNCTIONS************************/
+/************************FUNCTIONS WITH API REQUESTS************************/
 
 
 //GET API KEY FUNCTION
@@ -55,7 +59,7 @@ function getKey() {
 
     req.onreadystatechange = function(event) {
     
-    if (req.readyState == 4 && req.status == 200) {
+    if (this.readyState == 4 && this.status == 200) {
         let ob = JSON.parse(req.responseText);
         key = ob.key;
         api.innerHTML = `Recieved: ${key}`;
@@ -88,23 +92,38 @@ function addBook() {
 
         } else {
             
+            let child = document.getElementById("empty");
+            
+            child.style.display = "none";
+            
             //CREATE NEW ELEMENTS
-            let li = document.createElement('LI');
-            let del = document.createElement('span');
+            let li = document.createElement('li');
+            let bookTitle = document.createElement('span');
+            let authorTitle = document.createElement ('span');
+            let del = document.createElement('button');
             
             //ADD CONTENT
             del.textContent = 'delete';
+            bookTitle.textContent = title.value;
+            authorTitle.textContent = author.value;
             
-            //ADD CLASS TO DEL BUTTON
+            //ADD CLASS TO SPAN
+            bookTitle.classList.add('name');
+            authorTitle.classList.add('name');
             del.classList.add('delete');
             
-
-            li.innerHTML = `Title: <span>${title.value}</span> <br /> 
-                            Author: <span>${author.value}</span> <br /> 
-                            ID: <span>${ob1.id}</span> <br /> <br />`
-            
+            /*if (bookTitle || authorTitle == "") {
+                    
+                    alert('Must insert string');
+                    return false;
+  
+                } else {}*/
+                    
             //ADD TO DOM
-            li.appendChild(del);
+            li.appendChild(bookTitle);
+            li.appendChild(authorTitle);
+            li.appendChild(del);  
+            
             mylist.appendChild(li);
             
         }   
@@ -114,9 +133,57 @@ addreq.send();
 }
 
 
+/***********************FUNCTIONS WITHOUT API REQUESTS***********************/
+
+
 //CHANGE BOOK FUNCTION
 function changeBook() {
     
+    let span, 
+        input, 
+        text;
+
+ 
+    span = event.target 
+
+    // Check span
+    if (span && span.tagName.toUpperCase() === "SPAN") {
+        
+        // Hide it
+        span.style.display = "none";
+
+        // Get text content
+        text = span.innerHTML;
+
+        //Create element
+        input = document.createElement("input");
+        input.type = "text";
+        input.value = text;
+        
+        //Style element
+        input.size = Math.max(text.length);
+        input.style.outline = "none";
+        input.style.fontFamily = "Josefin Sans";
+        input.style.fontSize = "1em";
+        input.style.letterSpacing = "1px";
+        span.parentNode.insertBefore(input, span);
+
+        // Focus method to focus element
+        input.focus();
+        
+        //Blur eventlistener
+        input.addEventListener('blur',function(event){
+            
+            span.parentNode.removeChild(input);
+            
+            // Update span with new text content
+            span.innerHTML = input.value == "" ? "&nbsp;" : input.value;
+
+            // Show span
+            span.style.display = "";
+            
+        });
+    }; 
 }
 
 
@@ -131,3 +198,7 @@ function deleteBook() {
 }
 
   
+
+
+
+});

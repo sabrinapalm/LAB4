@@ -2,19 +2,23 @@ body {
     font-family: Josefin Sans;
     color: #444;
     letter-spacing: 1px;
+    background-image: url(resources/dust_scratches.png);
 }
 
-h1, h2 {
+h2 {
     font-weight: normal;
     text-align: center;
 }
 
 #wrapper {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 5px 10px;
     width: 100%;
     max-width: 800px;
     margin: 100px auto;
-    padding: 20px;
-    overflow: hidden;
+    padding: 70px;
+    border-radius: 10px;
+    border: 1px solid;
 }
 
 #banner {
@@ -30,18 +34,12 @@ h1, h2 {
     font-family: Josefin Sans;
 }
 
-#banner input {
-    width: 100%;
-    max-width: 300px;
-    margin: 20px auto;
-    display: block;
-    padding: 2px;
-    border: 1px solid #222831;
-    color: #222831;
+#list {
+    margin: 30px;
 }
 
-#list, #add {
-    margin: 30px;
+#list p {
+    text-align: center;
 }
 
 #list ul {
@@ -56,6 +54,7 @@ h1, h2 {
     border-right: 2px solid #ddd;
     border-left: 2px solid #ddd;
     margin: 20px 10px;
+    display: in
 }
 
 #add {
@@ -86,12 +85,24 @@ h1, h2 {
     margin: 0px auto;
 }
 
+.name {
+    display: block;
+    margin-bottom: 10px;
+}
+
 .delete {
+    font-family: Josefin Sans;
     background: #222831;
     padding: 6px;
-    border-radius: 4px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     color: white;
+    letter-spacing: 1px;
+    font-size: 16px;
+    margin: 10px auto;
+    display: block;
+    
 }
 
 .delete:hover{
@@ -99,11 +110,13 @@ h1, h2 {
 }
 
 #add input {
-
+    font-family: Josefin Sans;
+    font-size: 1em;
     margin: 100px auto;
     width: 180px;
     margin: 0 auto;
     padding: 2px;
+    outline: none;
 }
 
 #add button {
