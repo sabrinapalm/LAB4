@@ -1,181 +1,157 @@
 body {
-    font-family: Josefin Sans;
-    color: #444;
-    letter-spacing: 1px;
-    background-image: url(resources/dust_scratches.png);
+	font-family: Josefin Sans;
+	color: #444;
+	letter-spacing: 1px;
+	background-image: url(resources/dust_scratches.png);
 }
-
 h2 {
-    font-weight: normal;
-    text-align: center;
+	font-weight: normal;
+	text-align: center;
 }
-
 #wrapper {
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 5px 10px;
-    width: 100%;
-    max-width: 800px;
-    margin: 100px auto;
-    padding: 70px;
-    border-radius: 10px;
-    border: 1px solid;
+	background-color: rgba(255, 255, 255, 0.7);
+	box-shadow: 5px 10px;
+	width: 100%;
+	max-width: 800px;
+	margin: 100px auto;
+	padding: 70px;
+	border-radius: 10px;
+	border: 1px solid;
 }
-
 #banner {
-    padding: 10px 0;
-    margin-bottom: 50px;
+	padding: 10px 0;
+	margin-bottom: 50px;
 }
-
-#banner h1, #banner p {
-    width: 100%;
-    text-align: center;
-    margin: 0px;
-    letter-spacing: 2px;
-    font-family: Josefin Sans;
+#banner h1,
+#banner p {
+	width: 100%;
+	text-align: center;
+	margin: 0px;
+	letter-spacing: 2px;
+	font-family: Josefin Sans;
 }
-
 #list {
-    margin: 30px;
+	margin: 30px;
 }
-
 #list p {
-    text-align: center;
+	text-align: center;
 }
-
 #list ul {
-    list-style-type: none;
-    padding: 0;
+	list-style-type: none;
+	padding: 0;
 }
-
 #list li {
-    text-align: center;
-    padding: 10px;
-    border-left: 2px solid #ddd;
-    border-right: 2px solid #ddd;
-    border-left: 2px solid #ddd;
-    margin: 20px 10px;
-    display: in
+	text-align: center;
+	padding: 10px;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd;
+	border-left: 2px solid #ddd;
+	margin: 20px 10px;
+	display: in
 }
-
 #add {
-    text-align: center;
-    margin: 40px;
+	text-align: center;
+	margin: 40px;
 }
-
-
 #apibtn {
-    font-family: Josefin Sans;
-    border: none;
-    background: #222831;
-    padding: 10px 0px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 170px;
-    color: white;
-    letter-spacing: 1px;
-    margin: 10px auto;
-    display: block;
-    font-size: 1em;
+	font-family: Josefin Sans;
+	border: none;
+	background: #222831;
+	padding: 10px 0px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 170px;
+	color: white;
+	letter-spacing: 1px;
+	margin: 10px auto;
+	display: block;
+	font-size: 1em;
 }
-
 #apibtn:hover {
-    background: #333;
+	background: #333;
 }
 #api {
-    text-align: center;
-    width: 165px;
-    height: 30px;
-    font-size: 1.1em;
-    margin: 0px auto;
+	text-align: center;
+	width: 165px;
+	height: 30px;
+	font-size: 1.1em;
+	margin: 0px auto;
 }
-
 .name {
-    display: block;
-    margin-bottom: 10px;
+	display: block;
+	margin-bottom: 10px;
 }
-
 .delete {
-    font-family: Josefin Sans;
-    background: #222831;
-    padding: 6px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    letter-spacing: 1px;
-    font-size: 16px;
-    margin: 10px auto;
-    display: block;
-    
+	font-family: Josefin Sans;
+	background: #222831;
+	padding: 6px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	color: white;
+	letter-spacing: 1px;
+	font-size: 16px;
+	margin: 10px auto;
+	display: block;
 }
-
-.delete:hover{
-    background: #333;
+.delete:hover {
+	background: #333;
 }
-
 #add input {
-    font-family: Josefin Sans;
-    font-size: 1em;
-    margin: 100px auto;
-    width: 180px;
-    margin: 0 auto;
-    padding: 2px;
-    outline: none;
-    padding: 
+	font-family: Josefin Sans;
+	font-size: 1em;
+	margin: 100px auto;
+	width: 180px;
+	margin: 0 auto;
+	padding: 2px;
+	outline: none;
+	padding:
 }
-
 #add button {
-    font-family: Josefin Sans;
-    border: none;
-    background: #222831;
-    padding: 6px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100px;
-    color: white;
-    margin: 0 auto;
-    letter-spacing: 1px;
-    
+	font-family: Josefin Sans;
+	border: none;
+	background: #222831;
+	padding: 6px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100px;
+	color: white;
+	margin: 0 auto;
+	letter-spacing: 1px;
 }
-
 #add button:hover {
-    background: #333;
+	background: #333;
 }
-
 #result {
-    text-align: center;
-    margin-bottom: 50px;
+	text-align: center;
+	margin-bottom: 50px;
 }
-
 #search {
-    text-align: center;
+	text-align: center;
 }
-
 #changebtn {
-    font-family: Josefin Sans;
-    border: none;
-    background: #222831;
-    padding: 5px 0px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100px;
-    color: white;
-    display: block;
-    margin-top: 50px;
-    margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    letter-spacing: 1px;
-    padding: 8px 4px;
+	font-family: Josefin Sans;
+	border: none;
+	background: #222831;
+	padding: 5px 0px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100px;
+	color: white;
+	display: block;
+	margin-top: 50px;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	letter-spacing: 1px;
+	padding: 8px 4px;
 }
-
 #change {
-    margin: 100px auto;
-    width: 180px;
-    margin: 0 auto;
-    padding: 2px;
+	margin: 100px auto;
+	width: 180px;
+	margin: 0 auto;
+	padding: 2px;
 }
-
 #change input {
-    margin: 2px auto;
+	margin: 2px auto;
 }
