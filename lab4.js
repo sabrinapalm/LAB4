@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 	/************************VARIABLES************************/
-    
 	//REQUEST API KEY 
 	let apibtn = document.getElementById("apibtn"),
 		apiKey = document.getElementById("api"),
 		key;
-
 	//ADD BOOKS
 	let addbtn = document.getElementById("addbtn"),
 		mylist = document.getElementById("mylist"),
@@ -14,37 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
 		author = document.getElementsByTagName("input")[1],
 		result = document.getElementById("result"),
 		failed = 0;
-    
 	//VIEW BOOKS
 	let viewBtn = document.getElementById("viewBtn"),
 		output = document.getElementById("output");
-    
-    
 	/************************EVENT LISTENERS************************/
 	apibtn.addEventListener('click', function (event) {
 		getKey() //calling getKey function
 	});
-    
 	addbtn.addEventListener('click', function (event) {
 		event.preventDefault();
-        addBook() //calling addBook function 
+		addBook() //calling addBook function 
 	});
-    
 	mylist.addEventListener('click', function (event) {
 		changeBook(); //calling changeBook function
 	});
-    
 	mylist.addEventListener('click', function (event) {
 		deleteBook(); //calling delBook function
 	});
-    
 	viewBtn.addEventListener('click', function (event) {
 		viewBook(); //calling viewBooks function
 	});
-    
-    
 	/************************FUNCTIONS WITH API REQUESTS************************/
-    
 	//GET API KEY FUNCTION
 	function getKey() {
 		let req = new XMLHttpRequest();
@@ -58,13 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		req.send();
 	}
-    
-    //CHECK INPUT FUNCTION UNDER PROGRESS
-    function check() {
-      
-    }
-    
-    
+	//CHECK INPUT FUNCTION UNDER PROGRESS
+	function check() {}
 	//ADD BOOK FUNCTION
 	function addBook() {
 		let addreq = new XMLHttpRequest();
@@ -94,15 +77,13 @@ document.addEventListener('DOMContentLoaded', function () {
 					bookTitle.classList.add('name');
 					authorTitle.classList.add('name');
 					del.classList.add('delete');
-                    
 					//ADD TO DOM
 					li.appendChild(bookTitle);
 					li.appendChild(authorTitle);
 					li.appendChild(idTitle);
 					li.appendChild(del);
 					mylist.appendChild(li);
-                    
-                    //STYLE
+					//STYLE
 					mylist.style.display = "none";
 					viewBtn.style.display = "block";
 					result.innerHTML = `${title.value}, ${author.value} was succesfully added! ID: ${ob2.id}`;
@@ -112,9 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		addreq.send();
 	}
-    
-
-    
 	//VIEW BOOK FUNCTION
 	function viewBook() {
 		let viewreq = new XMLHttpRequest();
@@ -136,9 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		viewreq.send();
 	}
-    
-    /***********************FUNCTIONS WITHOUT API REQUESTS***********************/
-    
+	/***********************FUNCTIONS WITHOUT API REQUESTS***********************/
 	//CHANGE BOOK FUNCTION
 	function changeBook() {
 		let span,
@@ -174,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 		};
 	}
-    
 	//DELETE BOOK FUNCTION
 	function deleteBook() {
 		if (event.target.className == 'delete') {
