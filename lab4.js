@@ -15,6 +15,8 @@ let addbtn = document.getElementById("addbtn"),
 //VIEW BOOKS
 let viewBtn = document.getElementById("viewBtn"),
     output = document.getElementById("output");
+    
+    
 /************************EVENT LISTENERS************************/
 apibtn.addEventListener('click', function (event) {
     getKey() //calling getKey function
@@ -32,6 +34,8 @@ mylist.addEventListener('click', function (event) {
 viewBtn.addEventListener('click', function (event) {
     viewBook(); //calling viewBooks function
 });
+    
+    
 /************************FUNCTIONS WITH API REQUESTS************************/
 //GET API KEY FUNCTION
 function getKey() {
@@ -46,10 +50,7 @@ function getKey() {
     }
     req.send();
 }
-//CHECK INPUT FUNCTION UNDER PROGRESS
-function check() {
     
-}
 //ADD BOOK FUNCTION
 function addBook() {
     let addreq = new XMLHttpRequest();
@@ -95,6 +96,7 @@ function addBook() {
     }
     addreq.send();
 }
+    
 //VIEW BOOK FUNCTION
 function viewBook() {
     let viewreq = new XMLHttpRequest();
@@ -111,12 +113,14 @@ function viewBook() {
         } else {
             failed = failed + 1;
             result.innerHTML = `Ooops! Something went wrong! Try again!<br />Failed: ${failed}`;
-            result.style.color = "red";
+            result.style.color = "#CF0A2C";
         }
     }
     viewreq.send();
 }
-/***********************FUNCTIONS WITHOUT API REQUESTS***********************/
+    
+
+/***********************FUNCTIONS WITHOUT API REQUESTS :(***********************/
 //CHANGE BOOK FUNCTION
 function changeBook() {
     let span,
@@ -152,6 +156,7 @@ function changeBook() {
         });
     };
 }
+    
 //DELETE BOOK FUNCTION
 function deleteBook() {
     if (event.target.className == 'delete') {

@@ -2,7 +2,7 @@ body {
 	font-family: Josefin Sans;
 	color: #444;
 	letter-spacing: 1px;
-	background-image: url(resources/concrete_wall_2.png);
+	background-image: url(resources/white_wall_hash.png);
 }
 h2 {
 	font-weight: normal;
@@ -56,21 +56,21 @@ button:focus {
 	margin: 40px;
 }
 #addbtn {
-    color: #CF0A2C;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    font-size: 1.3em;
-    opacity: 0.8;
+	color: #CF0A2C;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	cursor: pointer;
+	overflow: hidden;
+	outline: none;
+	font-size: 1.3em;
+	opacity: 0.8;
 }
 #add button:hover {
-    opacity: 1;
+	opacity: 1;
 }
 #add button:active {
-    transform:scale(1.2,1.2);
+	transform: scale(1.2, 1.2);
 }
 #mylist {
 	-webkit-animation: fadein 1.5s;
@@ -84,7 +84,6 @@ button:focus {
 		opacity: 0.9;
 	}
 }
-}
 #list {
 	margin: 0px;
 }
@@ -96,10 +95,10 @@ button:focus {
 #list li {
 	text-align: center;
 	padding: 10px;
-	margin: 20px 10px;
 	display: inline-block;
 	padding: 30px;
 	border: 2p solid #333;
+	width: 90%;
 }
 #empty {
 	text-align: center;
@@ -162,36 +161,7 @@ button:focus {
 }
 #result {
 	text-align: center;
-	margin-bottom: 50px;
-}
-#search {
-	text-align: center;
-}
-#changebtn {
-	font-family: Josefin Sans;
-	border: none;
-	background: #222831;
-	padding: 5px 0px;
-	border-radius: 5px;
-	cursor: pointer;
-	width: 100px;
-	color: white;
-	display: block;
-	margin-top: 50px;
-	margin-bottom: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	letter-spacing: 1px;
-	padding: 8px 4px;
-}
-#change {
-	margin: 100px auto;
-	width: 180px;
-	margin: 0 auto;
-	padding: 2px;
-}
-#change input {
-	margin: 2px auto;
+	margin-bottom: 40px;
 }
 #viewBtn {
 	display: none;
