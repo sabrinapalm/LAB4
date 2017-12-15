@@ -2,7 +2,7 @@ body {
 	font-family: Josefin Sans;
 	color: #444;
 	letter-spacing: 1px;
-	background-image: url(resources/snow.png);
+	background-image: url(resources/concrete_wall_2.png);
 }
 h2 {
 	font-weight: normal;
@@ -12,11 +12,11 @@ button:focus {
 	outline: 0;
 }
 #wrapper {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.8);
 	box-shadow: 5px 10px;
 	width: 100%;
 	max-width: 800px;
-	margin: 100px auto;
+	margin: 150px auto;
 	padding: 70px;
 	border-radius: 10px;
 	border: 1px solid;
@@ -55,9 +55,22 @@ button:focus {
 	text-align: center;
 	margin: 40px;
 }
+#addbtn {
+    color: #CF0A2C;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-size: 1.3em;
+    opacity: 0.8;
+}
 #add button:hover {
-	background: #DDDDDD;
-	transition: 0.3s;
+    opacity: 1;
+}
+#add button:active {
+    transform:scale(1.2,1.2);
 }
 #mylist {
 	-webkit-animation: fadein 1.5s;
@@ -127,7 +140,6 @@ button:focus {
 	outline: none;
 	padding:
 }
-#add button,
 #viewBtn {
 	font-family: Josefin Sans;
 	font-size: 1em;
