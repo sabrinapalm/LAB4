@@ -8,6 +8,9 @@ h2 {
 	font-weight: normal;
 	text-align: center;
 }
+button:focus {
+    outline:0;
+}
 #wrapper {
 	background-color: rgba(255, 255, 255, 0.7);
 	box-shadow: 5px 10px;
@@ -22,36 +25,12 @@ h2 {
 	padding: 10px 0;
 	margin-bottom: 50px;
 }
-#banner h1,
-#banner p {
+#banner h1, #banner p {
 	width: 100%;
 	text-align: center;
 	margin: 0px;
 	letter-spacing: 2px;
 	font-family: Josefin Sans;
-}
-#list {
-	margin: 30px;
-}
-#list p {
-	text-align: center;
-}
-#list ul {
-	list-style-type: none;
-	padding: 0;
-}
-#list li {
-	text-align: center;
-	padding: 10px;
-	border-left: 2px solid #ddd;
-	border-right: 2px solid #ddd;
-	border-left: 2px solid #ddd;
-	margin: 20px 10px;
-	display: in
-}
-#add {
-	text-align: center;
-	margin: 40px;
 }
 #apibtn {
 	font-family: Josefin Sans;
@@ -68,21 +47,44 @@ h2 {
 	font-size: 1em;
 }
 #apibtn:hover {
-	background: #333;
+	background: #DDDDDD;
+    transition: 0.3s;
 }
-#api {
+#add {
 	text-align: center;
-	width: 165px;
-	height: 30px;
-	font-size: 1.1em;
-	margin: 0px auto;
+	margin: 40px;
+}
+#add button:hover {
+	background: #DDDDDD;
+    transition: 0.3s;
+}
+
+#list {
+	margin: 0px;
+}
+
+#list ul {
+	list-style-type: none;
+	padding: 0;
+    text-align: center;
+}
+#list li {
+	text-align: center;
+	padding: 10px;
+	margin: 20px 10px;
+    display: inline-block;
+    padding: 30px;
+    border: 2p solid #333;
+}
+#empty {
+    text-align: center;
 }
 .name {
 	display: block;
 	margin-bottom: 10px;
 }
 .delete {
-	font-family: Josefin Sans;
+	font-family: Krona One, sans-serif;
 	background: #222831;
 	padding: 6px;
 	border: none;
@@ -90,12 +92,17 @@ h2 {
 	cursor: pointer;
 	color: white;
 	letter-spacing: 1px;
-	font-size: 16px;
-	margin: 10px auto;
-	display: block;
+	font-size: 15px;
+    width: 30px;
+    height: 30px;
+
 }
 .delete:hover {
-	background: #333;
+	background: #DDDDDD;
+    transition: 0.3s;
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Safari 3-8 */
+    transform: rotate(90deg);
 }
 #add input {
 	font-family: Josefin Sans;
@@ -124,8 +131,9 @@ h2 {
 #viewBtn {
 	display: block;
 }
-#add button:hover {
-	background: #333;
+#viewBtn:hover {
+    background: #DDDDDD;
+    transition: 0.3s;
 }
 #result {
 	text-align: center;

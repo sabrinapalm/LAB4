@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
 	/************************VARIABLES************************/
+    
 	//REQUEST API KEY 
 	let apibtn = document.getElementById("apibtn"),
 		apiKey = document.getElementById("api"),
 		key;
-    
+
 	//ADD BOOKS
 	let addbtn = document.getElementById("addbtn"),
 		mylist = document.getElementById("mylist"),
@@ -24,30 +24,32 @@ document.addEventListener('DOMContentLoaded', function () {
 	apibtn.addEventListener('click', function (event) {
 		getKey() //calling getKey function
 	});
+    
 	addbtn.addEventListener('click', function (event) {
 		event.preventDefault();
-		addBook() //calling addBook function
+        addBook() //calling addBook function 
 	});
+    
 	mylist.addEventListener('click', function (event) {
 		changeBook(); //calling changeBook function
 	});
+    
 	mylist.addEventListener('click', function (event) {
 		deleteBook(); //calling delBook function
 	});
+    
 	viewBtn.addEventListener('click', function (event) {
 		viewBook(); //calling viewBooks function
 	});
     
     
 	/************************FUNCTIONS WITH API REQUESTS************************/
+    
 	//GET API KEY FUNCTION
 	function getKey() {
 		let req = new XMLHttpRequest();
 		req.open('GET', 'https://www.forverkliga.se/JavaScript/api/crud.php?requestKey', true);
 		req.onreadystatechange = function (event) {
-			console.log("readyState:" + req.readyState);
-			console.log("status:" + req.status);
-			console.log("responseText:" + req.responseText);
 			if (this.readyState == 4 && this.status == 200) {
 				let ob = JSON.parse(req.responseText);
 				key = ob.key;
@@ -57,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		req.send();
 	}
     
+    //CHECK INPUT FUNCTION UNDER PROGRESS
+    function check() {
+      
+    }
+    
+    
 	//ADD BOOK FUNCTION
 	function addBook() {
 		let addreq = new XMLHttpRequest();
@@ -65,15 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (this.status == 200 && this.readyState == 4) {
 				let ob1 = JSON.parse(this.responseText)
 				if (ob1.status == "error") {
-					console.log(ob1)
 					failed = failed + 1;
-					result.innerHTML = `Error message: ${ob1.message} <br />
-                                Failed: ${failed}`;
+					result.innerHTML = `Error message: ${ob1.message} <br />Failed: ${failed}`;
 					result.style.color = "red";
 				} else {
 					let ob2 = JSON.parse(this.responseText);
-					let ID = ob2.id;
-					console.log(ob2);
 					child.style.display = "none";
 					//CREATE NEW ELEMENTS
 					let li = document.createElement('li');
@@ -82,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					let idTitle = document.createElement('p');
 					let del = document.createElement('button');
 					//ADD CONTENT
-					del.textContent = 'delete';
+					del.textContent = 'X';
 					bookTitle.textContent = title.value;
 					authorTitle.textContent = author.value;
 					idTitle.textContent = `ID: ${ob2.id}`;
@@ -90,21 +94,18 @@ document.addEventListener('DOMContentLoaded', function () {
 					bookTitle.classList.add('name');
 					authorTitle.classList.add('name');
 					del.classList.add('delete');
-					/*if (bookTitle || authorTitle == "") {
                     
-                    alert('Must insert string');
-                    return false;
-  
-                } else {}*/
 					//ADD TO DOM
 					li.appendChild(bookTitle);
 					li.appendChild(authorTitle);
 					li.appendChild(idTitle);
 					li.appendChild(del);
 					mylist.appendChild(li);
+                    
+                    //STYLE
 					mylist.style.display = "none";
 					viewBtn.style.display = "block";
-					result.innerHTML = `${title.value}, ${author.value} was succesfully added!`;
+					result.innerHTML = `${title.value}, ${author.value} was succesfully added! ID: ${ob2.id}`;
 					result.style.color = "black";
 				}
 			}
@@ -112,12 +113,31 @@ document.addEventListener('DOMContentLoaded', function () {
 		addreq.send();
 	}
     
+
     
-	/***********************FUNCTIONS WITHOUT API REQUESTS***********************/
-	//VIEW BOOK FUNCTION UNDER PROGRESS!
+	//VIEW BOOK FUNCTION
 	function viewBook() {
-		if (mylist.children.length > 0) mylist.style.display = "block";
+		let viewreq = new XMLHttpRequest();
+		viewreq.open('GET', `https://www.forverkliga.se/JavaScript/api/crud.php?op=select&key=${key}`, true);
+		viewreq.onload = function () {
+			let obj = JSON.parse(viewreq.responseText);
+			if (obj.status == 'success') {
+				let objdata = Array.from(obj.data);
+				for (i = 0; i < objdata.length; i++) {
+					console.log(`${objdata[i].id}, ${objdata[i].title}, ${objdata[i].author}, ${objdata[i].updated}`);
+					mylist.style.display = "block";
+					viewBtn.style.display = "none";
+				}
+			} else {
+				failed = failed + 1;
+				result.innerHTML = `Ooops! Something went wrong! Try again!<br />Failed: ${failed}`;
+				result.style.color = "red";
+			}
+		}
+		viewreq.send();
 	}
+    
+    /***********************FUNCTIONS WITHOUT API REQUESTS***********************/
     
 	//CHANGE BOOK FUNCTION
 	function changeBook() {
