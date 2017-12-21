@@ -52,7 +52,7 @@ function getKey() {
     };
     req.send();
 }
-//SEARCH BOOK FUNCTION FROM API, TRY FETCH!
+//SEARCH BOOK FUNCTION FROM API, TRY FETCH
 function searchBook() {
     results.style.display = "flex";
     results.innerHTML = "";
@@ -138,12 +138,12 @@ function viewBook() {
             results.style.display = "none";
             searchresult[0].style.display = "none";
             for (let i = 0; i < json.data.length; i++) {
-                //CREATE NEW ELEMENTS
-                let li = document.createElement('li'),
-                    bookTitle = document.createElement('span'),
-                    authorTitle = document.createElement('span'),
-                    published = document.createElement('p'),
-                    del = document.createElement('button');
+            //CREATE NEW ELEMENTS
+            let li = document.createElement('li'),
+                bookTitle = document.createElement('span'),
+                authorTitle = document.createElement('span'),
+                published = document.createElement('p'),
+                del = document.createElement('button');
                 //ADD CONTENT
                 del.innerHTML = '<i class="fa fa-heart" aria-hidden="true"></i>';
                 bookTitle.innerHTML = `${json.data[i].title}`;
