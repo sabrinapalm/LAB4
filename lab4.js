@@ -56,7 +56,7 @@ function getKey() {
 function searchBook() {
     results.style.display = "flex";
     results.innerHTML = "";
-    fetch(`https://www.googleapis.com/books/v1/volumes?key=AIzaSyC6vfRj8Y3NoFuKBKEci9x1tDI5faifJBA&q=${title.value}q=${author.value}&startIndex=0&maxResults=6`).then(function (response) {
+    fetch(`https://www.googleapis.com/books/v1/volumes?key=AIzaSyC6vfRj8Y3NoFuKBKEci9x1tDI5faifJBA&q=${title.value}q=${author.value}&maxResults=10`).then(function (response) {
         return response.json();
     }).then(function (json) {
         results.innerHTML = "";
@@ -80,13 +80,15 @@ function searchBook() {
             button.setAttribute('id', 'add' + id++);
             div.setAttribute('id', 'content', id++);
             //GET IMG SRC
-            img.src = `${json.items[i].volumeInfo.imageLinks.thumbnail}`;
+            if (json.items[i].volumeInfo.readingModes.image === false) {
+                img.src = `resources/no_book_cover_lg.jpg`;
+            } else {
+                img.src = `${json.items[i].volumeInfo.imageLinks.thumbnail}`;
+            }
             // ADD CONTENT
             bookTitle.innerHTML = `<h3>${json.items[i].volumeInfo.title}<br></h3>`;
             authorTitle.innerHTML = `<strong>By:</strong> ${json.items[i].volumeInfo.authors}<br>`;
             published.innerHTML = `<strong>Published:</strong> ${json.items[i].volumeInfo.publishedDate}`;
-            //check the img src!
-            img.src = `${json.items[i].volumeInfo.imageLinks.thumbnail}`;
             button.innerHTML = `<i class="fa fa-heart-o" aria-hidden="true"></i>`;
             //ADD TO DOM
             div.appendChild(img);
@@ -117,7 +119,7 @@ function searchBook() {
                             viewBtn.style.display = "block";
                             empty.style.display = "none";
                         } else {
-                            failed += 1
+                            failed += 1;
                             result.innerHTML = `Request failed: ${failed}`;
                             result.style.color = "#CF0A2C";
                         }
@@ -175,7 +177,7 @@ function viewBook() {
             result.innerHTML = `Ooops! Something went wrong! Try again! <br>`;
             result.innerHTML += `Request failed: ${failed}`;
         }
-    })
+    });
 }
 //CHANGE BOOK FUNCTION
 function changeBook() {
@@ -223,7 +225,7 @@ function deleteBook(id) {
             result.style.color = "#000";
             result.innerHTML = `Your book was succesfully removed!`;
         } else {
-            failed += 1
+            failed += 1;
             result.style.color = "#CF0A2C";
             result.innerHTML = `Request failed: ${failed}`;
         }
@@ -231,6 +233,6 @@ function deleteBook(id) {
             viewBtn.style.display = "none";
             empty.style.display = "block";
         }
-    })
+    });
 }
 });

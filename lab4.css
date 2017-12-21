@@ -14,7 +14,7 @@ button:focus {
 #wrapper {
 	background-color: rgba(255, 255, 255, 0.8);
 	box-shadow: 5px 10px;
-	width: 900px;
+	width: 1000px;
 	margin: 100px auto;
 	padding: 70px;
 	border-radius: 10px;
@@ -146,7 +146,7 @@ button:focus {
 	text-align: left;
 	padding: 20px;
 	border: 2p solid #333;
-	width: 450px;
+	width: 440px;
 	margin: 10px;
 	height: 140px;
 	font-size: 0.8em;
