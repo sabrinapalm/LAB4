@@ -14,16 +14,15 @@ button:focus {
 #wrapper {
 	background-color: rgba(255, 255, 255, 0.8);
 	box-shadow: 5px 10px;
-	width: 100%;
-	max-width: 800px;
-	margin: 150px auto;
+	width: 900px;
+	margin: 100px auto;
 	padding: 70px;
 	border-radius: 10px;
 	border: 1px solid;
 }
 #banner {
 	padding: 10px 0;
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 }
 #banner h1,
 #banner p {
@@ -53,10 +52,11 @@ button:focus {
 }
 #add {
 	text-align: center;
-	margin: 40px;
+	margin: 30px;
+	margin-bottom: 60px;
 }
-#addbtn {
-	color: #CF0A2C;
+#searchbtn {
+	color: #000;
 	background-color: transparent;
 	background-repeat: no-repeat;
 	border: none;
@@ -66,15 +66,63 @@ button:focus {
 	font-size: 1.3em;
 	opacity: 0.8;
 }
+.likebutton {
+	background-color: transparent;
+	color: #CF0A2C;
+	border: none;
+	font-size: 1.3em;
+	margin-top: 20px;
+	opacity: 1;
+}
+.addstyle:active {
+	transform: scale(1.2, 1.2);
+}
 #add button:hover {
 	opacity: 1;
 }
 #add button:active {
 	transform: scale(1.2, 1.2);
 }
-#mylist {
+.searchresult {
+	display: none;
+}
+#results {
+	display: flex;
+	flex-flow: row wrap;
+	margin-bottom: 40px;
+}
+#results > div {
+	flex: 1 1 370px;
+	margin: 10px;
 	-webkit-animation: fadein 1.5s;
 	animation: fadein 1.5s;
+}
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 0.9;
+	}
+}
+#results > div > img {
+	width: 110px;
+	height: 160px;
+	overflow: hidden;
+	margin-right: 15px;
+}
+#results > div > p {
+	font-size: 0.75em;
+}
+#results > div > span {
+	font-size: 0.9em;
+}
+.books h3 {
+	margin: 3px auto 10px
+}
+#mylist {
+	-webkit-animation: fadein 2.5s;
+	animation: fadein 2.5s;
 }
 @keyframes fadein {
 	from {
@@ -91,14 +139,32 @@ button:focus {
 	list-style-type: none;
 	padding: 0;
 	text-align: center;
+	margin-left: -10px;
 }
 #list li {
-	text-align: center;
-	padding: 10px;
-	display: inline-block;
-	padding: 30px;
+	background-color: #F6F6F6;
+	text-align: left;
+	padding: 20px;
 	border: 2p solid #333;
-	width: 90%;
+	width: 450px;
+	margin: 10px;
+	height: 140px;
+	font-size: 0.8em;
+	display: inline-block;
+	-webkit-animation: fadein 1.5s;
+	animation: fadein 1.5s;
+}
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 0.9;
+	}
+}
+#list li h3 {
+	font-size: 1.4em;
+	margin: 3px auto 10px
 }
 #empty {
 	text-align: center;
@@ -108,28 +174,14 @@ button:focus {
 	margin-bottom: 10px;
 }
 .delete {
-	font-family: Krona One, sans-serif;
-	background: #222831;
-	padding: 6px;
+	background-color: transparent;
+	color: #CF0A2C;
 	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	color: white;
-	letter-spacing: 1px;
-	font-size: 15px;
-	width: 30px;
-	height: 30px;
+	font-size: 1.7em;
+	margin-top: 20px;
+	opacity: 1;
 }
-.delete:hover {
-	background: #DDDDDD;
-	transition: 0.3s;
-	-ms-transform: rotate(90deg);
-	/* IE 9 */
-	-webkit-transform: rotate(90deg);
-	/* Safari 3-8 */
-	transform: rotate(90deg);
-}
-#add input {
+.delete:hover {} #add input {
 	font-family: Josefin Sans;
 	font-size: 1em;
 	margin: 100px auto;
@@ -140,6 +192,7 @@ button:focus {
 	padding:
 }
 #viewBtn {
+	display: none;
 	font-family: Josefin Sans;
 	font-size: 1em;
 	border: none;
@@ -152,17 +205,14 @@ button:focus {
 	margin: 0 auto;
 	letter-spacing: 1px;
 }
-#viewBtn {
-	display: block;
-}
 #viewBtn:hover {
 	background: #DDDDDD;
 	transition: 0.3s;
 }
 #result {
+	font-size: 1em;
+	margin-bottom: 32px;
 	text-align: center;
-	margin-bottom: 40px;
-}
-#viewBtn {
-	display: none;
+	width: 100%;
+	height: auto;
 }

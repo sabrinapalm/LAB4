@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="lab4.css" rel="stylesheet" />
 	<title>Sabrina Palm | Lab 4</title>
-	<link rel="icon" href="/resources/favicon.png" type="image/gif" sizes="16x16">
+	<link rel="icon" href="./resources/favicon.png" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="lab4.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
@@ -16,18 +16,21 @@
 <body>
 	<div id="wrapper">
 		<div id="banner">
-			<h1 class="title">BOOKHUB <i class="fa fa-user-circle" aria-hidden="true"></i>
-</h1>
+			<h1 class="title">BOOKHUB <i class="fa fa-user-circle" aria-hidden="true"></i></h1>
 			<p>Enrich your life</p>
 		</div>
-		<button id="apibtn">requestKey</button>
+		<!--<button id="apibtn">requestKey</button>-->
 		<form id="add">
 			<input type="text" placeholder="(Title)" />
 			<input type="text" placeholder="(Author)" />
-			<button id="addbtn"><i class="fa fa-heart" aria-hidden="true"></i>
+			<button id="searchbtn"><i class="fa fa-search" aria-hidden="true"></i>
 			</button>
 		</form>
 		<div id="result"></div>
+		<!--RESULTS FROM SEARCH-->
+		<h2 class="searchresult">Searchresult:</h2>
+		<div id="results"></div>
+		<!--VIEW BOOK LIST-->
 		<div id="list">
 			<h2 class="title">Your bookhub</h2>
 			<p id="empty">is empty <i class="fa fa-frown-o" aria-hidden="true"></i>
