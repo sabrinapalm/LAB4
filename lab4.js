@@ -47,7 +47,7 @@ function getKey() {
         if (this.readyState == 4 && this.status == 200) {
             let ob = JSON.parse(req.responseText);
             key = ob.key;
-            console.log(`Requested key: ${key}`);
+            result.innerHTML = `Requested API key: ${key}`;
         }
     };
     req.send();
@@ -56,7 +56,7 @@ function getKey() {
 function searchBook() {
     results.style.display = "flex";
     results.innerHTML = "";
-    fetch(`https://www.googleapis.com/books/v1/volumes?key=AIzaSyC6vfRj8Y3NoFuKBKEci9x1tDI5faifJBA&q=${title.value}q=${author.value}&maxResults=10`).then(function (response) {
+    fetch(`https://www.googleapis.com/books/v1/volumes?key=AIzaSyC6vfRj8Y3NoFuKBKEci9x1tDI5faifJBA&q=${title.value}+inauthor:${author.value}&maxResults=10`).then(function (response) {
         return response.json();
     }).then(function (json) {
         results.innerHTML = "";
@@ -112,6 +112,7 @@ function searchBook() {
                     fetch(`https://www.forverkliga.se/JavaScript/api/crud.php?op=insert&key=${key}&title=${json.items[i].volumeInfo.title}&author=${json.items[i].volumeInfo.authors}`).then(function (res) {
                         return res.json();
                     }).then(function (json) {
+                        console.log(json.status);
                         if (json.status == 'success') {
                             likebutton[i].innerHTML = `<i class="fa fa-heart" aria-hidden="true"></i>`;
                             result.innerHTML = (`Your book was succesfully added! <i class="fa fa-smile-o" aria-hidden="true"></i>`);
@@ -120,7 +121,7 @@ function searchBook() {
                             empty.style.display = "none";
                         } else {
                             failed += 1;
-                            result.innerHTML = `Request failed: ${failed}`;
+                            result.innerHTML = `API request failed: ${failed}`;
                             result.style.color = "#CF0A2C";
                         }
                     });
@@ -138,12 +139,12 @@ function viewBook() {
             results.style.display = "none";
             searchresult[0].style.display = "none";
             for (let i = 0; i < json.data.length; i++) {
-            //CREATE NEW ELEMENTS
-            let li = document.createElement('li'),
-                bookTitle = document.createElement('span'),
-                authorTitle = document.createElement('span'),
-                published = document.createElement('p'),
-                del = document.createElement('button');
+                //CREATE NEW ELEMENTS
+                let li = document.createElement('li'),
+                    bookTitle = document.createElement('span'),
+                    authorTitle = document.createElement('span'),
+                    published = document.createElement('p'),
+                    del = document.createElement('button');
                 //ADD CONTENT
                 del.innerHTML = '<i class="fa fa-heart" aria-hidden="true"></i>';
                 bookTitle.innerHTML = `${json.data[i].title}`;
@@ -168,14 +169,14 @@ function viewBook() {
                     deleteBook(del.parentElement.id);
                 });
                 //STYLE
-                mylist.style.display = "block";
                 result.style.color = "black";
+                mylist.style.display = "block";
+                viewBtn.style.display = "none";
             }
         } else {
             failed += 1;
             result.style.color = "#CF0A2C";
-            result.innerHTML = `Ooops! Something went wrong! Try again! <br>`;
-            result.innerHTML += `Request failed: ${failed}`;
+            result.innerHTML = `API request failed: ${failed}`;
         }
     });
 }
@@ -199,7 +200,7 @@ function changeBook() {
         input.size = Math.max(text.length);
         input.style.outline = "none";
         input.style.fontFamily = "Josefin Sans";
-        input.style.fontSize = "1em";
+        input.style.fontSize = "1.3em";
         input.style.letterSpacing = "1px";
         span.parentNode.insertBefore(input, span);
         // Focus method to focus element
@@ -227,7 +228,8 @@ function deleteBook(id) {
         } else {
             failed += 1;
             result.style.color = "#CF0A2C";
-            result.innerHTML = `Request failed: ${failed}`;
+            result.innerHTML = `API request failed: ${failed}`;
+            console.log(json.message)
         }
         if (mylist.children.length === 0) {
             viewBtn.style.display = "none";

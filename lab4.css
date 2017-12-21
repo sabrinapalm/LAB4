@@ -12,7 +12,7 @@ button:focus {
 	outline: 0;
 }
 #wrapper {
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 1);
 	box-shadow: 5px 10px;
 	width: 1000px;
 	margin: 100px auto;
@@ -74,8 +74,9 @@ button:focus {
 	margin-top: 20px;
 	opacity: 1;
 }
-.addstyle:active {
+.likebutton:active {
 	transform: scale(1.2, 1.2);
+	transition: 0.3s;
 }
 #add button:hover {
 	opacity: 1;
@@ -181,7 +182,10 @@ button:focus {
 	margin-top: 20px;
 	opacity: 1;
 }
-.delete:hover {} #add input {
+.delete:active {
+    transform: scale(1.2, 1.2);
+} 
+#add input {
 	font-family: Josefin Sans;
 	font-size: 1em;
 	margin: 100px auto;
@@ -189,7 +193,6 @@ button:focus {
 	margin: 0 auto;
 	padding: 2px;
 	outline: none;
-	padding:
 }
 #viewBtn {
 	display: none;
@@ -210,9 +213,42 @@ button:focus {
 	transition: 0.3s;
 }
 #result {
-	font-size: 1em;
-	margin-bottom: 32px;
+	font-size: 0.9em;
 	text-align: center;
 	width: 100%;
 	height: auto;
+}
+#result.error {
+	position: fixed;
+	top: 180px;
+	right: 40px;
+	width: 320px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	background-color: #fff;
+	border: 5px solid #444;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+#result.error::before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 30px;
+	top: 100px;
+	border: 22px solid;
+	border-color: #444 transparent transparent #444;
+}
+#result.error::after {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 38px;
+	top: 100px;
+	border: 15px solid;
+	border-color: #fff transparent transparent #fff;
 }
