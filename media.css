@@ -1,0 +1,125 @@
+/* Desktops and laptops ----------- */
+@media screen and (max-width: 1180px) { 
+    #wrapper {
+        width: 95%;
+        margin: 10px auto;
+        padding: 20px;
+    }
+    #banner h1 {
+        margin-top: 50px;
+    }
+      #result.error {
+        padding: 0px;
+        width: 100%;
+        margin: 0 auto;
+        top: 5px;
+        right: 0px;
+        background-color: transparent;
+	    border: none;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+    }
+    #result.error::before {
+        display: none;
+    }
+    #result.error::after {
+        display: none;
+    }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (max-width: 768px) {
+    #wrapper {
+        margin: 0px;
+        padding: 15px;
+    }
+    #result.error {
+        top: 0px;
+    }
+    #results {
+        flex-direction: column;
+        flex-flow: column;
+        font-size: 1.5em;
+      }
+    #results > div {
+        background-color: #F6F6F6;
+        flex: 1;
+        margin: 20px;
+        padding: 30px;
+    }
+    #result {
+        font-size: 1.1em;
+    }
+    #banner h1 {
+          font-size: 2.5em;
+      }
+      #banner p {
+          font-size: 1.3em;
+      }
+    #add input {
+          width: 420px;
+          font-size: 2em;
+        margin-bottom: 10px;
+      }
+    #searchbtn {
+        font-size: 3em;
+        display: block;
+        margin: 0px auto;
+    }
+}
+
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (max-device-width: 500px) {
+    #wrapper {
+        padding: 5px;
+    }
+      #result.error {
+          font-size: 1.0em;
+          display: none;
+      }
+    #banner h1 {
+        width: 100%;
+        margin-top: 60px;
+        font-size: 3.5vh;
+      }
+      #banner p {
+          display: none;
+      }
+    #add input {
+        font-size: 2em;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      #banner h1 {
+          font-size: 3.5em;
+      }
+      #list ul {
+          margin-left: 0px;
+          font-size: 0.9em;
+          margin-bottom: 30px;
+      }
+      #list li {
+          display: block;
+          margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+          padding: 10px;
+          width: 90%;
+          height: auto;
+      }
+    #results {
+        font-size: 0.9em;
+    }
+    #results > div {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+      
+}

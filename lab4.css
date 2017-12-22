@@ -32,24 +32,6 @@ button:focus {
 	letter-spacing: 2px;
 	font-family: Josefin Sans;
 }
-#apibtn {
-	font-family: Josefin Sans;
-	border: none;
-	background: #222831;
-	padding: 10px 0px;
-	border-radius: 5px;
-	cursor: pointer;
-	width: 170px;
-	color: white;
-	letter-spacing: 1px;
-	margin: 10px auto;
-	display: block;
-	font-size: 1em;
-}
-#apibtn:hover {
-	background: #DDDDDD;
-	transition: 0.3s;
-}
 #add {
 	text-align: center;
 	margin: 30px;
