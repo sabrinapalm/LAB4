@@ -112,7 +112,6 @@ function searchBook() {
                     fetch(`https://www.forverkliga.se/JavaScript/api/crud.php?op=insert&key=${key}&title=${json.items[i].volumeInfo.title}&author=${json.items[i].volumeInfo.authors}`).then(function (res) {
                         return res.json();
                     }).then(function (json) {
-                        console.log(json.status);
                         if (json.status == 'success') {
                             likebutton[i].innerHTML = `<i class="fa fa-heart" aria-hidden="true"></i>`;
                             result.innerHTML = (`Your book was succesfully added! <i class="fa fa-smile-o" aria-hidden="true"></i>`);
@@ -197,7 +196,7 @@ function changeBook() {
         input.type = "text";
         input.value = text;
         //Style element
-        input.size = Math.max(text.length);
+        input.size = 52;
         input.style.outline = "none";
         input.style.fontFamily = "Josefin Sans";
         input.style.fontSize = "1.3em";
@@ -229,7 +228,6 @@ function deleteBook(id) {
             failed += 1;
             result.style.color = "#CF0A2C";
             result.innerHTML = `API request failed: ${failed}`;
-            console.log(json.message)
         }
         if (mylist.children.length === 0) {
             viewBtn.style.display = "none";
